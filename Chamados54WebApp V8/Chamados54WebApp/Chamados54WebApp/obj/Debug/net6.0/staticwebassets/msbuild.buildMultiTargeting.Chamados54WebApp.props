@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Chamados54WebApp.props" />
+</Project>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Chamados54WebApp.Data.Tecnico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tecnicos</h1>
+<br />
+<div class="d-flex justify-content-between">
+    <div>
+        <a asp-action="Incluir" class="btn btn-primary btn-sm">Incluir</a>
+    </div>
+    <div>
+        <form asp-action="Index">
+            <div class="form-group mb-2">
+                <label>Buscar</label>
+                <input type="search" id="txtBuscar" name="busca" class="form-control" />
+            </div>
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-damanger btn-sm">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
